@@ -1,18 +1,23 @@
+import { Link } from 'react-router-dom'
+
 const Home = () => {
   return (
     <div className='grid grid-cols-2 items-center h-auto'>
       <div className='flex flex-col justify-center items-center text-center'>
         <h1 className='flex flex-col text-[7rem] font-semibold tracking-tight leading-tight'>
           <span>They deserve</span>
-          <span className='bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 text-transparent bg-clip-text'>
+          <span className='bg-gradient-to-tl from-rose-400 via-fuchsia-500 to-indigo-500 text-transparent bg-clip-text'>
             a beautiful
           </span>
           <span>life.</span>
         </h1>
         <div className='flex gap-6 mt-4'>
-          <button className='bg-pink-500 px-8 py-2 rounded-md text-white hover:shadow-lg hover:shadow-pink-400 transition duration-500'>
+          <Link
+            to='/adoption-page'
+            className='bg-fuchsia-500 px-8 py-2 rounded-md text-white hover:shadow-lg hover:shadow-fuchsia-400 transition duration-500'
+          >
             Adopt
-          </button>
+          </Link>
           <button className='border-[1px] px-8 py-2 rounded-md hover:shadow-lg hover:shadow-gray-400 transition duration-500'>
             Explore
           </button>
