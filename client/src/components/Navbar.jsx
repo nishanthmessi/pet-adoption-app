@@ -11,7 +11,9 @@ const Navbar = () => {
           <Link to='/adoption-page' className='cursor-pointer'>
             Adopt
           </Link>
-          <li className='cursor-pointer'>Foster</li>
+          <Link to='/foster-page' className='cursor-pointer'>
+            Foster
+          </Link>
           <li className='cursor-pointer'>Contact</li>
         </ul>
       </div>

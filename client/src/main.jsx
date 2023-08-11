@@ -10,12 +10,14 @@ import App from './App.jsx'
 import './index.css'
 import Home from './pages/Home.jsx'
 import AdoptPage from './pages/AdoptPage.jsx'
+import FosterPage from './pages/FosterPage.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route index={true} path='/' element={<Home />} />
       <Route path='/adoption-page' element={<AdoptPage />} />
+      <Route path='/foster-page' element={<FosterPage />} />
     </Route>
   )
 )
