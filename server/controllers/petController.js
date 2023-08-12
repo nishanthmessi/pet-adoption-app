@@ -16,12 +16,12 @@ const registerPet = asyncHandler(async (req, res) => {
     petOwner,
   } = req.body
 
-  const petExists = await Pet.find({ name, petInfo, petImage })
+  // const petExists = await Pet.find({ name, petInfo, petImage })
 
-  if (petExists) {
-    res.status(400)
-    throw new Error('Pet already exists')
-  }
+  // if (petExists) {
+  //   res.status(400)
+  //   throw new Error('Pet already exists')
+  // }
 
   const pet = await Pet.create({
     name,
@@ -46,13 +46,18 @@ const registerPet = asyncHandler(async (req, res) => {
 // route GET /api/pets
 // @access Public
 const getAllPets = asyncHandler(async (req, res) => {
-  let query = {}
+  const pets = await Pet.find()
+  const petsFilteredData = pets.map((pet) => {
+    let _id = pet._id
+    let petName = pet.name
+    let petImage = pet.PetImage
+    let age = pet.age
+    let gender = pet.gender
 
-  if (req.filter.id) {
-    query.id = req.filter.id
-  }
-  const pets = await Pet.find(query)
-  res.status(200).json(pets)
+    return { _id, petName, petImage, age, gender }
+  })
+
+  res.status(200).json(petsFilteredData)
 
   if (!pets) {
     res.status(400)
