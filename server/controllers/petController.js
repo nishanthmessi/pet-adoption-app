@@ -2,8 +2,8 @@ import asyncHandler from 'express-async-handler'
 import Pet from '../models/petModel.js'
 
 // @desc - Register new pet
-// route POST /api/users
-// @access Public
+// route POST /api/pets/register-pet
+// @access Private
 const registerPet = asyncHandler(async (req, res) => {
   const {
     name,
@@ -42,4 +42,57 @@ const registerPet = asyncHandler(async (req, res) => {
   }
 })
 
-export { registerPet }
+// @desc - Get all pet profiles
+// route GET /api/pets
+// @access Public
+const getAllPets = asyncHandler(async (req, res) => {
+  let query = {}
+
+  if (req.filter.id) {
+    query.id = req.filter.id
+  }
+  const pets = await Pet.find(query)
+  res.status(200).json(pets)
+
+  if (!pets) {
+    res.status(400)
+    throw new Error('Something went wrong. Try again later')
+  }
+})
+
+// @desc - Get single pet profile
+// route GET /api/pet/:id
+// @access Public
+const getPetProfile = asyncHandler(async (req, res) => {
+  const pet = await Pet.findById(req.params.id)
+  if (pet) {
+    res.status(200).json(pet)
+  } else {
+    res.status(400)
+    throw new Error('Unable to get pet profile')
+  }
+})
+
+// @desc - Update pet profile
+// route POST /api/pets/update-pet
+// @access Private
+const updatePetProfile = asyncHandler(async (req, res) => {
+  const pet = await Pet.findByIdAndUpdate(req.params.id)
+  if (pet) {
+    pet.name = req.body.name || pet.name
+    pet.petInfo = req.body.petInfo || pet.petInfo
+    pet.petImage = req.body.petImage || pet.petImage
+    pet.age = req.body.age || pet.age
+    pet.gender = req.body.gender || pet.gender
+    pet.vaccinated = req.body.vaccinated || pet.vaccinated
+    pet.petOwner = req.body.petOwner || pet.petOwner
+
+    const updatedPet = await pet.save()
+    res.status(200).json(updatedPet)
+  } else {
+    res.status(400)
+    throw new Error('Pet not found')
+  }
+})
+
+export { registerPet, getAllPets, getPetProfile, updatePetProfile }
