@@ -79,7 +79,7 @@ const getPetProfile = asyncHandler(async (req, res) => {
 })
 
 // @desc - Update pet profile
-// route POST /api/pets/update-pet
+// route POST /api/pets/update-pet/:id
 // @access Private
 const updatePetProfile = asyncHandler(async (req, res) => {
   const pet = await Pet.findByIdAndUpdate(req.params.id)
@@ -100,4 +100,23 @@ const updatePetProfile = asyncHandler(async (req, res) => {
   }
 })
 
-export { registerPet, getAllPets, getPetProfile, updatePetProfile }
+// @desc - delete pet profile
+// route DELETE /api/pet/delete-profile/:id
+// @access Private
+const deletePetProfile = asyncHandler(async (req, res) => {
+  const pet = await Pet.findByIdAndDelete(req.params.id)
+  if (pet) {
+    res.status(200).json({ message: 'Profile deleted successfully' })
+  } else {
+    res.status(400)
+    throw new Error('Unable to delete profile. Try again')
+  }
+})
+
+export {
+  registerPet,
+  getAllPets,
+  getPetProfile,
+  updatePetProfile,
+  deletePetProfile,
+}
