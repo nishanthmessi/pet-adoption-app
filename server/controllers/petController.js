@@ -100,7 +100,7 @@ const updatePetProfile = asyncHandler(async (req, res) => {
   }
 })
 
-// @desc - delete pet profile
+// @desc - Delete pet profile
 // route DELETE /api/pet/delete-profile/:id
 // @access Private
 const deletePetProfile = asyncHandler(async (req, res) => {
