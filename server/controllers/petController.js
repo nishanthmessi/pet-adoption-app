@@ -50,7 +50,7 @@ const getAllPets = asyncHandler(async (req, res) => {
   const petsFilteredData = pets.map((pet) => {
     let _id = pet._id
     let petName = pet.name
-    let petImage = pet.PetImage
+    let petImage = pet.petImage
     let age = pet.age
     let gender = pet.gender
 
