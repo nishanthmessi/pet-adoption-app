@@ -25,12 +25,18 @@ const Navbar = () => {
       </Link>
       <div className='hidden md:block rounded-md'>
         <div className='flex items-center gap-4'>
-          <button className='py-[.30rem] px-4 bg-gray-700 rounded-lg text-white hover:shadow-xl transition duration-500'>
+          <Link
+            to='/login'
+            className='py-[.30rem] px-4 bg-gray-700 rounded-lg text-white hover:shadow-xl transition duration-500'
+          >
             Login
-          </button>
-          <button className='py-[.30rem] px-4 bg-gray-200 rounded-lg hover:shadow-xl transition duration-500'>
+          </Link>
+          <Link
+            to='/signup'
+            className='py-[.30rem] px-4 bg-gray-200 rounded-lg hover:shadow-xl transition duration-500'
+          >
             Sign Up
-          </button>
+          </Link>
         </div>
       </div>
       <div className='flex md:hidden items-center gap-6'>

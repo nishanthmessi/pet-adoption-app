@@ -1,13 +1,15 @@
-import React from 'react'
+import { useGetAllPetsQuery } from '../redux/slices/petApiSlice'
 
-const PetCards = ({ petsData }) => {
+const PetCards = () => {
+  const { data: allPets } = useGetAllPetsQuery()
+
   return (
     <>
-      {!petsData ? (
+      {!allPets ? (
         <div>Loading</div>
       ) : (
         <>
-          {petsData.map((pet) => (
+          {allPets.map((pet) => (
             <div className='h-[22rem] w-[20rem]' key={pet._id}>
               <img
                 src={pet.petImage}
