@@ -15,7 +15,7 @@ const RegisterPet = () => {
   return (
     <div className='flex justify-center items-center h-[90vh] gap-20'>
       <div className='flex flex-col items-center'>
-        <h1 className='text-2xl font-semibold'>Register Pet</h1>
+        <h1 className='text-4xl font-semibold'>Register Pet</h1>
         <p>Lorem ipsum dolor sit amet consectetur.</p>
       </div>
       <div className=' flex flex-col gap-4'>

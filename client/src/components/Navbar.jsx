@@ -1,12 +1,29 @@
-import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
 import SearchLineIcon from 'remixicon-react/SearchLineIcon'
 import Menu4LineIcon from 'remixicon-react/Menu4LineIcon'
 import BrandLogo from '../assets/dog.png'
+import { useLogoutMutation } from '../features/slices/users/userApiSlice'
+import { logout } from '../features/slices/auth/authSlice'
 
 const Navbar = () => {
   const { userInfo } = useSelector((state) => state.auth)
-  console.log(userInfo)
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const [logoutApiCall] = useLogoutMutation()
+
+  const logoutHandler = async () => {
+    try {
+      await logoutApiCall().unwrap()
+      dispatch(logout())
+      navigate('/')
+    } catch (err) {
+      console.log(err.data.message || err.error)
+    }
+  }
+
   return (
     <div className='sticky top-0 z-10 backdrop-blur-md backdrop-saturate-125 bg-white/40 flex justify-between items-center px-4 md:px-24 py-4'>
       <div className='hidden lg:block'>
@@ -32,6 +49,7 @@ const Navbar = () => {
         {userInfo ? (
           <>
             <h1 className='text-lg font-semibold'>{userInfo.name}</h1>
+            <button onClick={logoutHandler}>Logout</button>
           </>
         ) : (
           <>
