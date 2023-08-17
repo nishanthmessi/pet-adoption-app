@@ -15,6 +15,7 @@ import AdoptPage from './pages/AdoptPage.jsx'
 import FosterPage from './pages/FosterPage.jsx'
 import Login from './pages/Login.jsx'
 import SignUp from './pages/SignUp.jsx'
+import RegisterPet from './pages/RegisterPet.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path='/signup' element={<SignUp />} />
       <Route path='/adoption-page' element={<AdoptPage />} />
       <Route path='/foster-page' element={<FosterPage />} />
+      <Route path='/register-pet' element={<RegisterPet />} />
     </Route>
   )
 )

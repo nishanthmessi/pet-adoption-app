@@ -29,7 +29,9 @@ const Login = () => {
       const res = await login({ email, password }).unwrap()
       dispatch(setCredentials({ ...res }))
       navigate('/')
-    } catch (error) {}
+    } catch (err) {
+      console.log(err.data.message || err.error)
+    }
   }
 
   return (
