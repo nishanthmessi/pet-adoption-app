@@ -26,6 +26,12 @@ const Navbar = () => {
       <div className='hidden md:block rounded-md'>
         <div className='flex items-center gap-4'>
           <Link
+            to='/pet-register'
+            className='py-[.30rem] px-4 bg-gray-700 rounded-lg text-white hover:shadow-xl transition duration-500'
+          >
+            Register Pet
+          </Link>
+          <Link
             to='/login'
             className='py-[.30rem] px-4 bg-gray-700 rounded-lg text-white hover:shadow-xl transition duration-500'
           >

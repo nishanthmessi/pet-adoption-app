@@ -1,4 +1,4 @@
-import { useGetAllPetsQuery } from '../redux/slices/petApiSlice'
+import { useGetAllPetsQuery } from '../features/slices/pets/petApiSlice'
 
 const PetCards = () => {
   const { data: allPets } = useGetAllPetsQuery()

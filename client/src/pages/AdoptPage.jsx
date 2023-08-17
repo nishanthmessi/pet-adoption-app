@@ -1,6 +1,5 @@
 import SearchBar from '../components/SearchBar'
 import PetCards from '../components/PetCards'
-import { useGetAllPetsQuery } from '../redux/slices/petApiSlice'
 
 const AdoptPage = () => {
   return (
