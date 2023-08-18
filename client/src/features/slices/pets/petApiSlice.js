@@ -20,4 +20,8 @@ export const petsApiSlice = apiSlice.injectEndpoints({
   }),
 })
 
-export const { useGetAllPetsQuery, useGetPetProfileQuery } = petsApiSlice
+export const {
+  useRegisterPetMutation,
+  useGetAllPetsQuery,
+  useGetPetProfileQuery,
+} = petsApiSlice
