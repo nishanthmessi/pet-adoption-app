@@ -14,6 +14,8 @@ const registerPet = asyncHandler(async (req, res) => {
     vaccinated,
     neutered,
     petOwner,
+    district,
+    contactNumber,
   } = req.body
 
   // const petExists = await Pet.find({ name, petInfo, petImage })
@@ -31,6 +33,8 @@ const registerPet = asyncHandler(async (req, res) => {
     gender,
     vaccinated,
     neutered,
+    district,
+    contactNumber,
     petOwner,
   })
 

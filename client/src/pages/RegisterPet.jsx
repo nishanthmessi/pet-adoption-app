@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { districts } from '../utils/appData'
 import { useNavigate } from 'react-router-dom'
 import { useRegisterPetMutation } from '../features/slices/pets/petApiSlice'
@@ -9,16 +9,19 @@ const RegisterPet = () => {
   const [age, setAge] = useState('')
   const [gender, setGender] = useState('')
   const [petDesc, setPetDesc] = useState('')
+  const [petImage, setPetImage] = useState('')
   const [petDistrict, setPetDistrict] = useState('')
   const [contactNumber, setContactNumber] = useState('')
   const [vaccinatedOption, setVaccinatedOption] = useState('yes')
   const [neuteredOption, setNeutertedOption] = useState('yes')
-  const [petImage, setPetImage] = useState('')
 
   const navigate = useNavigate()
-  const dispatch = useDispatch()
 
   const { userInfo } = useSelector((state) => state.auth)
+
+  const handleDistrictChange = (e) => {
+    setPetDistrict(e.target.value)
+  }
 
   const handleVaccinatedChange = (e) => {
     setVaccinatedOption(e.target.value)
@@ -31,14 +34,25 @@ const RegisterPet = () => {
   const [registerPet, { isLoading }] = useRegisterPetMutation()
 
   const handleRegisterPet = async () => {
+    const petData = {
+      name: petName,
+      age: age,
+      gender: gender,
+      petInfo: petDesc,
+      petImage: petImage,
+      district: petDistrict,
+      contactNumber: contactNumber,
+      vaccinated: vaccinatedOption,
+      neutered: neuteredOption,
+      petOwner: userInfo.name,
+    }
     try {
-      const res = await registerPet({}).unwrap()
+      const res = await registerPet(petData).unwrap()
+      navigate('/adoption-page')
     } catch (err) {
       console.log(err.data.message || err.error)
     }
   }
-
-  console.log(petDistrict)
 
   return (
     <div className='flex justify-center items-center h-[90vh] gap-20'>
@@ -92,15 +106,15 @@ const RegisterPet = () => {
         </div>
 
         <div className='flex gap-4'>
-          <select className='w-48 rounded-md p-[.4rem] bg-gray-100'>
+          <select
+            className='w-48 rounded-md p-[.4rem] bg-gray-100'
+            value={petDistrict}
+            onChange={handleDistrictChange}
+          >
             <option default>-- select district --</option>
-            {districts.map((district, i) => (
-              <option
-                key={district}
-                value={petDistrict}
-                onSelect={(e) => setPetDistrict(district)}
-              >
-                {district}
+            {districts.map((district) => (
+              <option key={district.id} value={district.name}>
+                {district.name}
               </option>
             ))}
           </select>
@@ -187,7 +201,10 @@ const RegisterPet = () => {
             readOnly={true}
           />
         </div>
-        <button className='w-full bg-gradient-to-bl from-rose-400 via-fuchsia-500 to-indigo-500 py-2 rounded-md text-white'>
+        <button
+          className='w-full bg-gradient-to-bl from-rose-400 via-fuchsia-500 to-indigo-500 py-2 rounded-md text-white'
+          onClick={handleRegisterPet}
+        >
           Submit
         </button>
       </div>
