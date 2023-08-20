@@ -19,26 +19,6 @@ const RegisterPet = () => {
 
   const { userInfo } = useSelector((state) => state.auth)
 
-  const handleAgeChange = (e) => {
-    setAge(e.target.value)
-  }
-
-  const handleGenderChange = (e) => {
-    setGender(e.target.value)
-  }
-
-  const handleDistrictChange = (e) => {
-    setPetDistrict(e.target.value)
-  }
-
-  const handleVaccinatedChange = (e) => {
-    setVaccinatedOption(e.target.value)
-  }
-
-  const handleNeuteredChange = (e) => {
-    setNeutertedOption(e.target.value)
-  }
-
   const [registerPet, { isLoading }] = useRegisterPetMutation()
 
   const handleRegisterPet = async () => {
@@ -79,17 +59,10 @@ const RegisterPet = () => {
           />
         </div>
         <div className='flex gap-2'>
-          {/* <input
-            type='text'
-            className='py-1 px-2 border-[.10rem] border-gray-400 rounded-md'
-            placeholder='Age'
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-          /> */}
           <select
             className='w-48 rounded-md p-[.4rem] bg-gray-100'
             value={age}
-            onChange={handleAgeChange}
+            onChange={(e) => setAge(e.target.value)}
           >
             <option default>-- select age --</option>
             {ages.map((age) => (
@@ -101,7 +74,7 @@ const RegisterPet = () => {
           <select
             className='w-48 rounded-md p-[.4rem] bg-gray-100'
             value={gender}
-            onChange={handleGenderChange}
+            onChange={(e) => setGender(e.target.value)}
           >
             <option default>-- select gender --</option>
             {genders.map((gender) => (
@@ -110,13 +83,6 @@ const RegisterPet = () => {
               </option>
             ))}
           </select>
-          {/* <input
-            type='text'
-            className='py-1 px-2 border-[.10rem] border-gray-400 rounded-md'
-            placeholder='Gender'
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-          /> */}
         </div>
         <div>
           <textarea
@@ -141,7 +107,7 @@ const RegisterPet = () => {
           <select
             className='w-48 rounded-md p-[.4rem] bg-gray-100'
             value={petDistrict}
-            onChange={handleDistrictChange}
+            onChange={(e) => setPetDistrict(e.target.value)}
           >
             <option default>-- select district --</option>
             {districts.map((district) => (
@@ -170,7 +136,7 @@ const RegisterPet = () => {
               type='radio'
               value='yes'
               checked={vaccinatedOption === 'yes'}
-              onChange={handleVaccinatedChange}
+              onChange={(e) => setVaccinatedOption(e.target.value)}
             />
             <label className='hover:cursor-pointer mr-8'>Yes</label>
             <input
@@ -178,7 +144,7 @@ const RegisterPet = () => {
               type='radio'
               value='no'
               checked={vaccinatedOption === 'no'}
-              onChange={handleVaccinatedChange}
+              onChange={(e) => setVaccinatedOption(e.target.value)}
             />
             <label className='hover:cursor-pointer mr-8'>No</label>
             <input
@@ -186,7 +152,7 @@ const RegisterPet = () => {
               type='radio'
               value='unknown'
               checked={vaccinatedOption === 'unknown'}
-              onChange={handleVaccinatedChange}
+              onChange={(e) => setVaccinatedOption(e.target.value)}
             />
             <label className='hover:cursor-pointer'>Unknown</label>
           </div>
@@ -200,7 +166,7 @@ const RegisterPet = () => {
               type='radio'
               value='yes'
               checked={neuteredOption === 'yes'}
-              onChange={handleNeuteredChange}
+              onChange={(e) => setNeutertedOption(e.target.value)}
             />
             <label className='hover:cursor-pointer mr-8'>Yes</label>
             <input
@@ -208,7 +174,7 @@ const RegisterPet = () => {
               type='radio'
               value='no'
               checked={neuteredOption === 'no'}
-              onChange={handleNeuteredChange}
+              onChange={(e) => setNeutertedOption(e.target.value)}
             />
             <label className='hover:cursor-pointer mr-8'>No</label>
             <input
@@ -216,7 +182,7 @@ const RegisterPet = () => {
               type='radio'
               value='unknown'
               checked={neuteredOption === 'unknown'}
-              onChange={handleNeuteredChange}
+              onChange={(e) => setNeutertedOption(e.target.value)}
             />
             <label className='hover:cursor-pointer'>Unknown</label>
           </div>
