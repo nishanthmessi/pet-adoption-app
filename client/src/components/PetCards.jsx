@@ -14,7 +14,7 @@ const PetCards = () => {
               <img
                 src={pet.petImage}
                 alt=''
-                className='object-cover h-[16rem] rounded-lg'
+                className='object-cover h-[16rem] w-[26rem] rounded-lg'
               />
               <div className='flex flex-col mt-4'>
                 <h1 className='font-semibold'>{pet.petName}</h1>

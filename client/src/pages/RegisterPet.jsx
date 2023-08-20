@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { districts } from '../utils/appData'
+import { districts, ages, genders } from '../utils/appData'
 import { useNavigate } from 'react-router-dom'
 import { useRegisterPetMutation } from '../features/slices/pets/petApiSlice'
 
@@ -18,6 +18,14 @@ const RegisterPet = () => {
   const navigate = useNavigate()
 
   const { userInfo } = useSelector((state) => state.auth)
+
+  const handleAgeChange = (e) => {
+    setAge(e.target.value)
+  }
+
+  const handleGenderChange = (e) => {
+    setGender(e.target.value)
+  }
 
   const handleDistrictChange = (e) => {
     setPetDistrict(e.target.value)
@@ -71,20 +79,44 @@ const RegisterPet = () => {
           />
         </div>
         <div className='flex gap-2'>
-          <input
+          {/* <input
             type='text'
             className='py-1 px-2 border-[.10rem] border-gray-400 rounded-md'
             placeholder='Age'
             value={age}
             onChange={(e) => setAge(e.target.value)}
-          />
-          <input
+          /> */}
+          <select
+            className='w-48 rounded-md p-[.4rem] bg-gray-100'
+            value={age}
+            onChange={handleAgeChange}
+          >
+            <option default>-- select age --</option>
+            {ages.map((age) => (
+              <option key={age.id} value={age.name}>
+                {age.name}
+              </option>
+            ))}
+          </select>
+          <select
+            className='w-48 rounded-md p-[.4rem] bg-gray-100'
+            value={gender}
+            onChange={handleGenderChange}
+          >
+            <option default>-- select gender --</option>
+            {genders.map((gender) => (
+              <option key={gender.id} value={gender.name}>
+                {gender.name}
+              </option>
+            ))}
+          </select>
+          {/* <input
             type='text'
             className='py-1 px-2 border-[.10rem] border-gray-400 rounded-md'
             placeholder='Gender'
             value={gender}
             onChange={(e) => setGender(e.target.value)}
-          />
+          /> */}
         </div>
         <div>
           <textarea

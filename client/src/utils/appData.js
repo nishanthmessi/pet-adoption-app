@@ -183,3 +183,29 @@ export const districts = [
     name: 'Virudhunagar',
   },
 ]
+
+export const ages = [
+  {
+    id: 1,
+    name: 'Puppyhood',
+  },
+  {
+    id: 2,
+    name: 'Adolescence',
+  },
+  {
+    id: 3,
+    name: 'Adulthood',
+  },
+]
+
+export const genders = [
+  {
+    id: 1,
+    name: 'Male',
+  },
+  {
+    id: 2,
+    name: 'Female',
+  },
+]
