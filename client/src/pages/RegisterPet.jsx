@@ -50,6 +50,12 @@ const RegisterPet = () => {
       </div>
       <div className=' flex flex-col gap-4'>
         <div>
+          <select className='w-48 rounded-md p-[.4rem] bg-gray-100'>
+            <option default>Dog</option>
+            <option>Cat</option>
+          </select>
+        </div>
+        <div>
           <input
             type='text'
             className='py-1 px-2 border-[.10rem] border-gray-400 rounded-md w-full'

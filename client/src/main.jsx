@@ -10,13 +10,14 @@ import store from './features/store.js'
 import { Provider } from 'react-redux'
 import App from './App.jsx'
 import './index.css'
+import PrivateRoute from './components/PrivateRoute.jsx'
 import Home from './pages/Home.jsx'
 import AdoptPage from './pages/AdoptPage.jsx'
 import FosterPage from './pages/FosterPage.jsx'
 import Login from './pages/Login.jsx'
 import SignUp from './pages/SignUp.jsx'
 import RegisterPet from './pages/RegisterPet.jsx'
-import PrivateRoute from './components/PrivateRoute.jsx'
+import PetProfile from './pages/PetProfile.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -26,6 +27,7 @@ const router = createBrowserRouter(
       <Route path='/signup' element={<SignUp />} />
       <Route path='/adoption-page' element={<AdoptPage />} />
       <Route path='/foster-page' element={<FosterPage />} />
+      <Route path='/pet-profile' element={<PetProfile />} />
       {/* Private Routes */}
       <Route path='' element={<PrivateRoute />}>
         <Route path='/register-pet' element={<RegisterPet />} />
