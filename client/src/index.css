@@ -1,0 +1,20 @@
+/* Base Font */
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@200,500,300,600,400,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body {
+    font-family: 'General Sans', sans-serif;
+  }
+}
+
+@layer utilities {
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    @apply appearance-none;
+  }
+}
