@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
-    <div className='grid grid-cols-2 items-center h-auto'>
+    <div className='grid lg:grid-cols-2 items-center h-[90vh] lg:h-auto'>
       <div className='flex flex-col justify-center items-center text-center'>
         <h1 className='flex flex-col text-[7rem] font-semibold tracking-tight leading-tight'>
           <span>They deserve</span>
@@ -24,7 +24,7 @@ const Home = () => {
         </div>
       </div>
       {/* images */}
-      <div className='flex flex-col justify-start items-center gap-14'>
+      <div className='hidden lg:flex flex-col justify-start items-center gap-14'>
         <div className='flex'>
           <div className='mt-[200px]'>
             <img
