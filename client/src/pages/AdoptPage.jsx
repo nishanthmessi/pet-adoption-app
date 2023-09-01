@@ -8,7 +8,7 @@ const AdoptPage = () => {
         <SearchBar />
       </div>
       <div className='flex justify-center mt-14'>
-        <div className='grid grid-cols-3 justify-items-center gap-10'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center gap-10'>
           <PetCards />
         </div>
       </div>

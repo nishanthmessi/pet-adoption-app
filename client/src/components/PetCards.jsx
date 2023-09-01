@@ -19,11 +19,14 @@ const PetCards = () => {
               key={pet._id}
               onClick={() => dispatch(setPetProfileId(pet._id))}
             >
-              <div className='h-[22rem] w-[20rem] cursor-pointer' key={pet._id}>
+              <div
+                className='h-[24rem] w-[24rem] sm:h-[22rem] sm:w-[20rem] cursor-pointer'
+                key={pet._id}
+              >
                 <img
                   src={pet.petImage}
                   alt=''
-                  className='object-cover h-[16rem] w-[26rem] rounded-lg'
+                  className='object-cover h-[20rem] w-[26rem] sm:h-[16rem] sm:w-[26rem] rounded-lg'
                 />
                 <div className='flex flex-col mt-4'>
                   <h1 className='font-semibold'>{pet.petName}</h1>

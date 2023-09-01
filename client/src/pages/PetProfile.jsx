@@ -21,15 +21,15 @@ const PetProfile = () => {
       ) : (
         <>
           <div className='flex justify-center gap-16 mt-20'>
-            <div className='grid grid-cols-2 gap-14'>
+            <div className='grid md:grid-cols-2 gap-14'>
               <div className='shadow-lg'>
                 <img
                   src={singlePet.petImage}
                   alt=''
-                  className='h-[26rem] w-[26rem] object-cover rounded-md'
+                  className='h-[26rem] w-[22rem] sm:h-[26rem] sm:w-[26rem] object-cover rounded-md'
                 />
               </div>
-              <div className='flex flex-col gap-6 text-6xl'>
+              <div className='flex flex-col gap-6 text-5xl sm:text-6xl'>
                 <div className='flex flex-col gap-2 font-medium'>
                   <p>Hello there!</p>
                   <p>My name is</p>
@@ -75,22 +75,22 @@ const PetProfile = () => {
           <div className='flex flex-col items-center gap-4'>
             <div className='text-center mt-16'>
               <div>
-                <h1 className='text-2xl font-medium underline mb-2'>
+                <h1 className='text-xl sm:text-2xl font-medium underline mb-2'>
                   What they say about me
                 </h1>
-                <p className='text-xl'>"{singlePet.petInfo}"</p>
+                <p className='text-lg sm:text-xl'>"{singlePet.petInfo}"</p>
               </div>
             </div>
 
-            <div className='flex gap-16 text-xl border-[.10rem] py-4 px-8 mt-8 rounded-md shadow-md'>
-              <div>
+            <div className='flex flex-col md:flex-row gap-6 md:gap-16 text-xl border-[.10rem] py-4 px-20 md:px-8 mt-8 rounded-md shadow-md'>
+              <div className=''>
                 <h1 className='flex items-center gap-2 font-medium mb-2'>
                   <UserHeartLineIcon />
                   Pet Owner
                 </h1>
                 <p>{singlePet.petOwner}</p>
               </div>
-              <div className='border-r-[.12rem]'></div>
+              <div className='border-r-[.12rem] border-b-[.12rem] md:border-b-0'></div>
               <div>
                 <h1 className='flex items-center gap-2 font-medium mb-2'>
                   <ContactsBook2LineIcon />
@@ -98,7 +98,7 @@ const PetProfile = () => {
                 </h1>
                 <p>{singlePet.contactNumber}</p>
               </div>
-              <div className='border-r-[.12rem]'></div>
+              <div className='border-r-[.12rem] border-b-[.12rem] md:border-b-0'></div>
               {/* <div>
                 <h1 className='flex items-center gap-2 font-medium mb-2'>
                   <ContactsBook2LineIcon />

@@ -4,7 +4,7 @@ const Home = () => {
   return (
     <div className='grid lg:grid-cols-2 items-center h-[90vh] lg:h-auto'>
       <div className='flex flex-col justify-center items-center text-center'>
-        <h1 className='flex flex-col text-[7rem] font-semibold tracking-tight leading-tight'>
+        <h1 className='flex flex-col text-6xl sm:text-[7rem] font-semibold tracking-tight leading-tight'>
           <span>They deserve</span>
           <span className='bg-gradient-to-tl from-rose-400 via-fuchsia-500 to-indigo-500 text-transparent bg-clip-text'>
             a beautiful
