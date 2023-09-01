@@ -7,11 +7,10 @@ const SearchBar = () => {
   const [district, setDistrict] = useState('')
 
   const { data: filteredProfiles } = useFilterProfilesQuery(district)
-  console.log(filteredProfiles)
   const handleSearch = async () => {}
 
   return (
-    <div className='flex items-center gap-4 border-[.1rem] p-3 rounded-lg shadow-md'>
+    <div className='hidden sm:flex items-center gap-4 border-[.1rem] p-3 rounded-lg shadow-md'>
       <label>Pet Type</label>
       <select className='w-24 rounded-md p-[.4rem] bg-gray-200'>
         <option value='dogs'>Dogs</option>
