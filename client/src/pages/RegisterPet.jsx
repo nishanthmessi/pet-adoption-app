@@ -49,12 +49,12 @@ const RegisterPet = () => {
         <p>Lorem ipsum dolor sit amet consectetur.</p>
       </div>
       <div className=' flex flex-col gap-4'>
-        <div>
+        {/* <div>
           <select className='w-48 rounded-md p-[.4rem] bg-gray-100'>
             <option default>Dog</option>
             <option>Cat</option>
           </select>
-        </div>
+        </div> */}
         <div>
           <input
             type='text'
